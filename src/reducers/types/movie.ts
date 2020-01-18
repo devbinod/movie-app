@@ -16,4 +16,6 @@ export interface MovieState {
   description_full: string;
   yt_trailer_code: string;
   language: string;
+  background_image: string;
+  background_image_original: string;
 }

@@ -18,4 +18,5 @@ export interface MovieState {
   language: string;
   background_image: string;
   background_image_original: string;
+  medium_cover_image: string;
 }

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import container, { MapStateToProps, MapDispatchToProps } from "./container";
 import { MovieState } from "../../reducers/types/movie";
+import Image from "material-ui-image";
 
 import {
   Grid,
@@ -26,15 +27,16 @@ export class Movie extends Component<MovieProps> {
       <Grid container spacing={10}>
         {movies.length > 1 ? (
           movies.map((movie: MovieState) => {
-            console.log(movie.background_image_original);
             return (
-              <Grid item xs={12} sm={6} key={movie.id}>
+              <Grid item xs={12} sm={3} md={3} key={movie.id}>
                 <Card className="card">
                   <CardActionArea>
-                    <CardMedia
-                      className="media"
-                      src={movie.background_image_original}
-                      title={movie.title}
+                    <Image
+                      src={movie.medium_cover_image}
+                      style={{
+                        width: "219px",
+                        height: "210px"
+                      }}
                     />
                     <CardContent>
                       <Typography gutterBottom variant="h5" component="h2">

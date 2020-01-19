@@ -19,4 +19,19 @@ export interface MovieState {
   background_image: string;
   background_image_original: string;
   medium_cover_image: string;
+  date_uploaded: string;
+  torrents: Array<Torrent>;
+}
+
+export interface Torrent {
+  url: string;
+  type: string;
+  size_bytes: number;
+  size: string;
+  seeds: number;
+  quality: string;
+  peers: number;
+  hash: string;
+  date_uploaded: string;
+  date_uploaded_unix: number;
 }

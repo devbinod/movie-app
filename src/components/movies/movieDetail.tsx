@@ -1,7 +1,9 @@
 import React from "react";
 
-export const MovieDetail = () => {
-  return <div>Movie Detail.............</div>;
-};
+class MovieDetail extends React.Component {
+  render() {
+    return <div>Movie Detail.............</div>;
+  }
+}
 
 export default MovieDetail;

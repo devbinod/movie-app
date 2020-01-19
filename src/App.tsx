@@ -24,9 +24,8 @@ const App: React.FC = () => {
         <Router>
           <div className="App">
             <Switch>
-              <Route exacet path="/movie" component={Movie} />
-              <Route exacet path="/" component={Movie} />
               <Route exacet path="/movie/:id/detail" component={MovieDetail} />
+              <Route exacet path="/" component={Movie} />
             </Switch>
           </div>
         </Router>

@@ -3,7 +3,7 @@ import container, { MapStateToProps, MapDispatchToProps } from "./container";
 import { MovieState, Torrent } from "../../reducers/types/movie";
 import Image from "material-ui-image";
 import StarIcon from "@material-ui/icons/Star";
-import { Link as RouterLink } from "react-router-dom";
+import { History } from "history";
 import {
   Grid,
   Card,
@@ -32,7 +32,13 @@ const styles = () =>
     }
   });
 
-export type Props = MapStateToProps & MapDispatchToProps & WithStyles;
+export interface HistoryDetail {
+  history: History;
+}
+export type Props = MapStateToProps &
+  MapDispatchToProps &
+  HistoryDetail &
+  WithStyles;
 
 export interface State {
   viewDetail: boolean;
@@ -48,6 +54,10 @@ export class Movie extends Component<Props, State> {
   componentDidMount() {
     this.props.getAllMovie();
   }
+
+  gotToMovieDetail = (movieId: number) => {
+    this.props.history.push(`/movie/${movieId}/detail`);
+  };
 
   render() {
     const { movies, classes } = this.props;
@@ -91,6 +101,7 @@ export class Movie extends Component<Props, State> {
                           size="medium"
                           color="secondary"
                           variant="contained"
+                          onClick={() => this.gotToMovieDetail(movie.id)}
                         >
                           View Details
                         </Button>
